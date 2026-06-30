@@ -101,8 +101,9 @@ export function Navbar() {
             />
           </button>
         </div>
+      </nav>
 
-        {/* Mobile menu overlay */}
+      {/* Mobile menu overlay */}
         <div
           id="mobile-menu"
           role="dialog"
@@ -202,7 +203,6 @@ export function Navbar() {
             <div className="glow-divider mt-6" />
           </div>
         </div>
-      </nav>
     </header>
   );
 }
