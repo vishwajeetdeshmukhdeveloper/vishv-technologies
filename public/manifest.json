@@ -1,0 +1,20 @@
+{
+  "name": "Vishv Technologies",
+  "short_name": "Vishv",
+  "description": "Building the future through technology — software development, learning courses, and developer community.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "education", "productivity"],
+  "lang": "en"
+}
