@@ -1,13 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navLinks } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const toggleCooldown = useRef(false);
+
+  const handleToggle = () => {
+    if (toggleCooldown.current) return;
+    toggleCooldown.current = true;
+    setMobileOpen((prev) => !prev);
+    setTimeout(() => {
+      toggleCooldown.current = false;
+    }, 350);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -68,7 +78,7 @@ export function Navbar() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={handleToggle}
           >
             <span
               className="absolute block h-[2px] w-5 rounded-full bg-white transition-all duration-300"
