@@ -1,6 +1,8 @@
 import { projects } from "@/config/site";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
+type Project = (typeof projects)[number] & { image?: string; link?: string };
+
 const colorStyles = {
   blue: { text: "text-blue-500", bg: "bg-blue-500/20", border: "hover:border-blue-500/50" },
   purple: { text: "text-purple-500", bg: "bg-purple-500/20", border: "hover:border-purple-500/50" },
@@ -41,8 +43,8 @@ export function Portfolio() {
                   className={`group relative flex h-full min-h-[320px] flex-col justify-between overflow-hidden rounded-[20px] border border-[var(--color-glass-border)] bg-[var(--color-surface)] p-8 transition-all duration-300 hover:-translate-y-1 ${styles.border}`}
                   aria-label={project.title}
                   style={{
-                    background: (project as any).image
-                      ? `linear-gradient(to top, rgba(13,13,15,0.95) 0%, rgba(13,13,15,0.4) 100%), url(${(project as any).image}) center/cover no-repeat`
+                    background: (project as Project).image
+                      ? `linear-gradient(to top, rgba(13,13,15,0.95) 0%, rgba(13,13,15,0.4) 100%), url(${(project as Project).image}) center/cover no-repeat`
                       : `${project.bgGradient}, var(--color-surface)`,
                   }}
                 >
@@ -63,9 +65,9 @@ export function Portfolio() {
 
                   <div className="relative z-10 mt-8">
                     <a
-                      href={(project as any).link || "#"}
+                      href={(project as Project).link ?? "#"}
                       className={`inline-flex items-center gap-2 text-[15px] font-medium transition-colors ${styles.text} hover:brightness-125`}
-                      {...(project as any).link?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+                      {...(project as Project).link?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}
                     >
                       View Case Study <span aria-hidden="true">→</span>
                     </a>
