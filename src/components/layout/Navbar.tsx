@@ -38,7 +38,7 @@ export function Navbar() {
         id="navbar"
         aria-label="Main navigation"
         className={cn(
-          "fixed top-0 right-0 left-0 z-[1000] px-0 py-4 transition-all duration-300",
+          "fixed top-0 right-0 left-0 z-[9998] px-0 py-4 transition-all duration-300",
           scrolled && "border-b border-[var(--color-glass-border)] bg-[rgba(5,5,5,0.85)] backdrop-blur-[20px]",
         )}
       >
@@ -110,7 +110,7 @@ export function Navbar() {
           aria-label="Mobile navigation"
           aria-hidden={!mobileOpen}
           className={cn(
-            "fixed inset-0 z-[999] md:hidden flex flex-col",
+            "fixed inset-0 z-[9997] md:hidden flex flex-col",
             "transition-all duration-300 ease-in-out",
             mobileOpen
               ? "opacity-100 pointer-events-auto"
