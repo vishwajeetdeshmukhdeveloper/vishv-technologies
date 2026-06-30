@@ -40,3 +40,5 @@ next-env.d.ts
 # Legacy
 /legacy
 lighthouse-report.json
+
+.vercel
