@@ -167,7 +167,7 @@ export const communityItems = [
     variant: "blue" as const,
     title: "Discord Community",
     description:
-      "An active server of 10,000+ developers — ask questions, share projects, find collaborators, and land opportunities.",
+      "An active server of 500+ developers — ask questions, share projects, find collaborators, and land opportunities.",
   },
   {
     icon: "🏗️",
