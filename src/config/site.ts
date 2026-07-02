@@ -6,7 +6,7 @@ export const siteConfig = {
     "Vishv Technologies empowers businesses and individuals through innovative software, practical education, and a thriving developer community.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vishvtech.io",
   email: "vishvtechnologies.info@gmail.com",
-  phone: "+91 72194 88995",
+  phone: "+91 93092 35319",
   address: {
     streetAddress: "Satwashila, Sambhaji Nagar",
     addressLocality: "Satara",
