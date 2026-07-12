@@ -15,8 +15,8 @@ export function FAQ() {
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-[800px]">
-        <RevealOnScroll className="text-center">
-          <div className="section-label">FAQ</div>
+        <RevealOnScroll>
+          <div className="section-eyebrow">FAQ</div>
           <h2 id="faq-heading" className="section-title">
             Frequently Asked Questions
           </h2>
@@ -30,12 +30,12 @@ export function FAQ() {
 
             return (
               <RevealOnScroll key={item.question}>
-                <div className="overflow-hidden rounded-2xl border border-[var(--color-glass-border)] bg-[var(--color-glass)]">
+                <div className="card overflow-hidden border border-[var(--color-border)]">
                   <h3>
                     <button
                       type="button"
                       id={buttonId}
-                      className="interactive flex w-full items-center justify-between px-6 py-5 text-left text-base font-semibold transition-colors hover:text-[var(--color-blue)]"
+                      className="flex w-full items-center justify-between px-6 py-5 text-left text-base font-semibold text-[var(--color-white)] transition-colors hover:text-[var(--color-accent)] cursor-pointer bg-transparent border-none"
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -51,8 +51,8 @@ export function FAQ() {
                     role="region"
                     aria-labelledby={buttonId}
                     className={cn(
-                      "overflow-hidden px-6 text-sm leading-relaxed text-[var(--color-muted)] transition-all",
-                      isOpen ? "max-h-48 pb-5" : "max-h-0",
+                      "overflow-hidden px-6 text-[15px] leading-relaxed text-[var(--color-muted)] transition-all",
+                      isOpen ? "max-h-48 pb-6" : "max-h-0",
                     )}
                   >
                     {item.answer}

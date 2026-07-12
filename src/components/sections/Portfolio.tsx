@@ -1,17 +1,6 @@
 import { projects } from "@/config/site";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
-type Project = (typeof projects)[number] & { image?: string; link?: string };
-
-const colorStyles = {
-  blue: { text: "text-blue-500", bg: "bg-blue-500/20", border: "hover:border-blue-500/50" },
-  purple: { text: "text-purple-500", bg: "bg-purple-500/20", border: "hover:border-purple-500/50" },
-  cyan: { text: "text-cyan-500", bg: "bg-cyan-500/20", border: "hover:border-cyan-500/50" },
-  yellow: { text: "text-yellow-500", bg: "bg-yellow-500/20", border: "hover:border-yellow-500/50" },
-  green: { text: "text-green-500", bg: "bg-green-500/20", border: "hover:border-green-500/50" },
-  pink: { text: "text-pink-500", bg: "bg-pink-500/20", border: "hover:border-pink-500/50" },
-} as const;
-
 export function Portfolio() {
   return (
     <section
@@ -21,58 +10,86 @@ export function Portfolio() {
     >
       <div className="mx-auto max-w-[1200px]">
         <RevealOnScroll>
-          <div className="section-label">Our Work</div>
-          <h2 id="work-heading" className="section-title">
-            Products We&apos;re
+          <div className="section-eyebrow">Selected Work</div>
+          <h2 id="work-heading" className="section-title max-w-[500px]">
+            Products we have
             <br />
-            Proud <span className="text-blue-500">Of</span>
+            shipped and maintained
           </h2>
           <p className="section-desc max-w-[600px]">
-            A selection of projects that showcase our range — from elegant
-            consumer products to complex enterprise systems.
+            A selection of projects that showcase our range — from agricultural
+            AI to personal finance tools and healthcare platforms.
           </p>
         </RevealOnScroll>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => {
-            const styles = colorStyles[project.color as keyof typeof colorStyles];
+        {/* ── Staggered grid — varies across breakpoints ── */}
+        <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {projects.map((project, index) => {
+            /* Alternate large/small cards for visual rhythm */
+            const isLarge = index % 3 === 0;
 
             return (
-              <RevealOnScroll key={project.title}>
-                <article
-                  className={`group relative flex h-full min-h-[320px] flex-col justify-between overflow-hidden rounded-[20px] border border-[var(--color-glass-border)] bg-[var(--color-surface)] p-8 transition-all duration-300 hover:-translate-y-1 ${styles.border}`}
-                  aria-label={project.title}
-                  style={{
-                    background: (project as Project).image
-                      ? `linear-gradient(to top, rgba(13,13,15,0.95) 0%, rgba(13,13,15,0.4) 100%), url(${(project as Project).image}) center/cover no-repeat`
-                      : `${project.bgGradient}, var(--color-surface)`,
-                  }}
+              <RevealOnScroll
+                key={project.title}
+                className={isLarge ? "md:col-span-2 lg:col-span-1" : ""}
+              >
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                  aria-label={`View ${project.title} project`}
                 >
-                  <div className="relative z-10">
+                  <article
+                    className="card relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-lg"
+                  >
+                    {/* ── Project image ── */}
+                    {project.image && (
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                        aria-hidden="true"
+                      />
+                    )}
+                    {/* ── Gradient overlay for text readability ── */}
                     <div
-                      className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl text-2xl ${styles.bg}`}
+                      className="absolute inset-0"
                       aria-hidden="true"
-                    >
-                      {project.icon}
-                    </div>
-                    <h3 className="font-display mb-3 text-2xl font-semibold text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-[15px] leading-relaxed text-[var(--color-muted)]">
-                      {project.description}
-                    </p>
-                  </div>
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.5) 40%, rgba(6,6,6,0.15) 100%)",
+                      }}
+                    />
 
-                  <div className="relative z-10 mt-8">
-                    <a
-                      href={(project as Project).link ?? "#"}
-                      className={`inline-flex items-center gap-2 text-[15px] font-medium transition-colors ${styles.text} hover:brightness-125`}
-                      {...(project as Project).link?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}
-                    >
-                      View Case Study <span aria-hidden="true">→</span>
-                    </a>
-                  </div>
-                </article>
+                    {/* ── Content ── */}
+                    <div className="relative z-10 p-7">
+                      <h3 className="font-display mb-2 text-xl font-semibold text-[var(--color-white)]">
+                        {project.title}
+                      </h3>
+                      <p className="mb-4 max-w-[400px] text-sm leading-relaxed text-[var(--color-muted)]">
+                        {project.description}
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] transition-colors group-hover:brightness-125">
+                        View on GitHub
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                          className="transition-transform group-hover:translate-x-0.5"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </span>
+                    </div>
+                  </article>
+                </a>
               </RevealOnScroll>
             );
           })}

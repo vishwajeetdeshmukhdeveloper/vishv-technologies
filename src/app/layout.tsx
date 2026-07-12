@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ClientShell } from "@/components/layout/ClientShell";
@@ -17,17 +17,17 @@ const inter = Inter({
   preload: true,
 });
 
-const spaceGrotesk = Space_Grotesk({
+const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-geist-sans",
   preload: true,
 });
 
 export const metadata: Metadata = createMetadata();
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#060606",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geist.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         {allJsonLd().map((schema, index) => (

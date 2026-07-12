@@ -12,8 +12,8 @@ export function Community() {
   const [activeTab, setActiveTab] = useState<TabId>("learning");
 
   const tabs: { id: TabId; label: string }[] = [
-    { id: "learning", label: "Learning Platform" },
-    { id: "community", label: "Developer Community" },
+    { id: "learning", label: "Education" },
+    { id: "community", label: "Community" },
   ];
 
   const items = activeTab === "learning" ? learningItems : communityItems;
@@ -24,32 +24,25 @@ export function Community() {
       className="relative overflow-hidden px-8 py-[120px] max-md:py-20"
       aria-labelledby="community-heading"
     >
-      <div
-        className="pointer-events-none absolute bottom-[-150px] left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full opacity-15 blur-[80px]"
-        aria-hidden="true"
-        style={{
-          background: "radial-gradient(circle, rgba(124,58,237,0.25), transparent 70%)",
-        }}
-      />
       <div className="mx-auto max-w-[1200px]">
         <RevealOnScroll>
-          <div className="section-label">Learn. Build. Connect.</div>
-          <h2 id="community-heading" className="section-title">
-            More Than a
+          <div className="section-eyebrow">Beyond Software</div>
+          <h2 id="community-heading" className="section-title max-w-[500px]">
+            Education and community
             <br />
-            Tech Company
+            that accelerate careers
           </h2>
           <p className="section-desc">
-            We&apos;ve built an ecosystem — a learning platform and developer community that
-            accelerates careers and fosters collaboration.
+            We run a structured learning platform and an active developer
+            community — because great engineers are built, not found.
           </p>
         </RevealOnScroll>
 
         <RevealOnScroll className="mt-16">
           <div
-            className="mb-10 flex w-fit gap-1 rounded-[14px] border border-[var(--color-glass-border)] bg-[var(--color-glass)] p-1"
+            className="mb-10 flex w-fit gap-1 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] p-1"
             role="tablist"
-            aria-label="Learning and community options"
+            aria-label="Education and community options"
           >
             {tabs.map((tab) => (
               <button
@@ -60,10 +53,11 @@ export function Community() {
                 aria-selected={activeTab === tab.id}
                 aria-controls={`panel-${tab.id}`}
                 className={cn(
-                  "interactive cursor-pointer rounded-[10px] border-none px-6 py-2.5 text-sm font-medium transition-all",
+                  "cursor-pointer rounded px-6 py-2.5 text-sm font-medium transition-all border-none",
+                  "font-[var(--font-display)]",
                   activeTab === tab.id
-                    ? "bg-gradient-to-br from-[var(--color-blue)] to-[var(--color-purple)] text-white"
-                    : "bg-transparent text-[var(--color-muted)]",
+                    ? "bg-[var(--color-accent)] text-[#060606]"
+                    : "bg-transparent text-[var(--color-muted)] hover:text-[var(--color-white)]",
                 )}
                 onClick={() => setActiveTab(tab.id)}
               >

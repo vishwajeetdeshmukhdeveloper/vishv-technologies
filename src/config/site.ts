@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Vishv Technologies",
-  shortName: "Vishv",
-  tagline: "Building the Future Through Technology",
+  shortName: "Vishv Technologies",
+  tagline: "Software. Education. Community.",
   description:
-    "Vishv Technologies empowers businesses and individuals through innovative software, practical education, and a thriving developer community.",
+    "Vishv Technologies builds production software, runs career-focused developer education, and maintains an active open-source community from Satara, India.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vishvtech.io",
   email: "vishvtechnologies.info@gmail.com",
   phone: "+91 93092 35319",
@@ -43,118 +43,102 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const heroStats = [
-  { value: 15, suffix: "+", label: "Projects Delivered" },
-  { value: 500, suffix: "+", label: "Community Members" },
-  { value: 10, suffix: "+", label: "Learning Resources" },
-  { value: 99, suffix: "%", label: "Client Satisfaction" },
-] as const;
+/* ── Icon keys (mapped to SVG in ServiceCard) ── */
+export type IconKey =
+  | "code"
+  | "globe"
+  | "smartphone"
+  | "cpu"
+  | "cloud"
+  | "palette"
+  | "link"
+  | "cog"
+  | "shield"
+  | "graduation"
+  | "map"
+  | "trophy"
+  | "broadcast"
+  | "bolt"
+  | "rocket"
+  | "chat"
+  | "building"
+  | "earth"
+  | "mic"
+  | "handshake"
+  | "network";
 
 export const services = [
   {
-    icon: "💻",
-    variant: "blue" as const,
+    icon: "code" as IconKey,
     title: "Software Development",
     description:
       "Custom enterprise software built with clean architecture, scalable backends, and maintainable codebases that evolve with your business.",
   },
   {
-    icon: "🌐",
-    variant: "purple" as const,
+    icon: "globe" as IconKey,
     title: "Web Development",
     description:
-      "Performant, beautiful websites and web apps crafted with Next.js, TypeScript, and modern tooling — pixel-perfect across all devices.",
+      "Performant websites and web apps crafted with Next.js, TypeScript, and modern tooling — pixel-perfect across all devices.",
   },
   {
-    icon: "📱",
-    variant: "cyan" as const,
+    icon: "smartphone" as IconKey,
     title: "Mobile Applications",
     description:
-      "Cross-platform mobile apps with Flutter, delivering native performance and stunning UI for iOS and Android simultaneously.",
+      "Cross-platform mobile apps with Flutter, delivering native performance and polished UI for iOS and Android simultaneously.",
   },
   {
-    icon: "🤖",
-    variant: "blue" as const,
+    icon: "cpu" as IconKey,
     title: "AI Solutions",
     description:
       "Intelligent automation, machine learning integrations, and LLM-powered products that give your business a decisive competitive edge.",
   },
   {
-    icon: "☁️",
-    variant: "purple" as const,
+    icon: "cloud" as IconKey,
     title: "Cloud & DevOps",
     description:
-      "AWS, GCP, and Azure architectures with CI/CD pipelines, containerization, and infrastructure-as-code for bulletproof deployments.",
+      "AWS, GCP, and Azure architectures with CI/CD pipelines, containerization, and infrastructure-as-code for reliable deployments.",
   },
   {
-    icon: "🎨",
-    variant: "cyan" as const,
+    icon: "palette" as IconKey,
     title: "UI/UX Design",
     description:
-      "Human-centered design that converts — from wireframes to high-fidelity prototypes, we craft interfaces users love.",
-  },
-  {
-    icon: "🔗",
-    variant: "blue" as const,
-    title: "API Development",
-    description:
-      "RESTful and GraphQL APIs built for reliability, security, and developer experience — with full documentation and testing suites.",
-  },
-  {
-    icon: "⚙️",
-    variant: "purple" as const,
-    title: "Automation",
-    description:
-      "Workflow automation that eliminates repetitive tasks and connects your tools — saving your team hundreds of hours each month.",
-  },
-  {
-    icon: "🛡️",
-    variant: "cyan" as const,
-    title: "Security & Compliance",
-    description:
-      "End-to-end security audits, penetration testing, and compliance implementations that protect your data and your users.",
+      "Human-centered design that converts — from wireframes to high-fidelity prototypes, we craft interfaces users actually enjoy.",
   },
 ] as const;
 
 export const learningItems = [
   {
-    icon: "🎓",
-    variant: "blue" as const,
+    icon: "graduation" as IconKey,
     title: "Professional Courses",
     description:
       "Industry-aligned courses from foundational programming to advanced system design, taught by working professionals.",
   },
   {
-    icon: "🗺️",
-    variant: "purple" as const,
+    icon: "map" as IconKey,
     title: "Career Roadmaps",
     description:
       "Structured learning paths for frontend, backend, fullstack, AI/ML, and DevOps — from zero to job-ready.",
   },
   {
-    icon: "🏆",
-    variant: "cyan" as const,
+    icon: "trophy" as IconKey,
     title: "Certifications",
     description:
       "Industry-recognized certificates that validate your skills to employers and open doors to better opportunities.",
   },
   {
-    icon: "📡",
-    variant: "blue" as const,
+    icon: "broadcast" as IconKey,
     title: "Live Classes",
     description:
       "Real-time sessions with instructors and cohorts — ask questions, get feedback, and learn together.",
   },
   {
-    icon: "⚡",
-    variant: "purple" as const,
+    icon: "bolt" as IconKey,
     title: "Coding Challenges",
     description:
       "Daily challenges and weekly contests that sharpen your problem-solving and prepare you for technical interviews.",
   },
   {
-    icon: "🚀",
-    variant: "cyan" as const,
+    icon: "rocket" as IconKey,
     title: "Project-Based Learning",
     description:
       "Build portfolio-worthy projects with guided mentorship — real apps, real code, real results.",
@@ -163,140 +147,110 @@ export const learningItems = [
 
 export const communityItems = [
   {
-    icon: "💬",
-    variant: "blue" as const,
+    icon: "chat" as IconKey,
     title: "Discord Community",
     description:
       "An active server of 500+ developers — ask questions, share projects, find collaborators, and land opportunities.",
   },
   {
-    icon: "🏗️",
-    variant: "purple" as const,
+    icon: "building" as IconKey,
     title: "Hackathons",
     description:
       "Quarterly hackathons with real prizes, industry judges, and the chance to build something extraordinary under pressure.",
   },
   {
-    icon: "🌍",
-    variant: "cyan" as const,
+    icon: "earth" as IconKey,
     title: "Open Source",
     description:
       "Contribute to and maintain open source projects — build your GitHub profile and give back to the community.",
   },
   {
-    icon: "🎙️",
-    variant: "blue" as const,
+    icon: "mic" as IconKey,
     title: "Workshops",
     description:
       "Monthly hands-on workshops led by CTOs, senior engineers, and product leaders from top tech companies.",
   },
   {
-    icon: "🤝",
-    variant: "purple" as const,
+    icon: "handshake" as IconKey,
     title: "Mentorship",
     description:
-      "1-on-1 mentorship with vetted industry professionals who've shipped products at scale and know how to guide careers.",
+      "1-on-1 mentorship with vetted industry professionals who have shipped products at scale and know how to guide careers.",
   },
   {
-    icon: "🌐",
-    variant: "cyan" as const,
+    icon: "network" as IconKey,
     title: "Global Networking",
     description:
       "Connect with developers, designers, and founders across 40+ countries — your next collaborator or co-founder is here.",
   },
 ] as const;
 
-export const features = [
+export const approachItems = [
   {
-    num: "01",
-    title: "Innovation First",
+    title: "Subject-specific architecture",
     description:
-      "We don't follow trends — we identify them early and build ahead of the curve. Every project explores what's possible, not just what's precedented.",
+      "Every project starts with your domain — not a template. We study your business model, user base, and growth plan before writing a single line of code.",
   },
   {
-    num: "02",
-    title: "Speed Without Compromise",
+    title: "Rapid, iterative delivery",
     description:
-      "Rapid delivery cycles that don't sacrifice quality. Our agile process means you see working software in days, not months.",
+      "Working software in days, not months. Our sprints are short and our demos are frequent, so your feedback shapes the product continuously.",
   },
   {
-    num: "03",
-    title: "Modern Technology Stack",
+    title: "Modern stack, no legacy drag",
     description:
-      "We work exclusively with proven, current technologies — no legacy baggage. Your codebase will be maintainable and future-proof from day one.",
+      "We work with current, proven technologies — Next.js, TypeScript, Python, Flutter, AWS. Your codebase will be maintainable from day one.",
   },
   {
-    num: "04",
-    title: "Security by Design",
+    title: "Security from line one",
     description:
-      "Security isn't an afterthought — it's architected in from line one. We follow OWASP, implement encryption by default, and audit continuously.",
+      "Security isn't bolted on later. We follow OWASP, implement encryption by default, and audit before every release.",
   },
   {
-    num: "05",
-    title: "Built to Scale",
+    title: "Built for your five-year vision",
     description:
-      "Architecture that handles 100 users as gracefully as 10 million. We design for your five-year vision, not just your current load.",
+      "Architecture that handles 100 users as gracefully as 10 million. We design for scale because retrofitting is expensive.",
   },
   {
-    num: "06",
-    title: "Expert Human Team",
+    title: "Senior engineers, real accountability",
     description:
-      "Real senior engineers, not offshore juniors. Every team member has shipped production products and knows what \"done\" actually means.",
+      "Every team member has shipped production products. You work directly with the people writing your code — no handoffs to offshore juniors.",
   },
 ] as const;
 
 export const projects = [
   {
-    icon: "🌿",
-    color: "green",
     title: "SmartAgri",
-    description: "AI Powered Disease Detection and Crop Management System for Farmers.",
-    bgGradient: "radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 60%)",
+    description: "AI-powered disease detection and crop management system for farmers.",
     image: "/portfolio/industry-solutions.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/SmartAgri",
   },
   {
-    icon: "🤖",
-    color: "purple",
     title: "Alpha",
-    description: "AI-Powered Personal Assistant Robot With ESP32 and LLM Integration.",
-    bgGradient: "radial-gradient(circle at top right, rgba(124, 58, 237, 0.15), transparent 60%)",
+    description: "AI-powered personal assistant robot with ESP32 and LLM integration.",
     image: "/portfolio/ai-solutions.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/Alpha-Robot-Companion",
   },
   {
-    icon: "📊",
-    color: "cyan",
     title: "ExpensePro",
-    description: "Expense Tracking and Budgeting Web Application for Personal Finance Management.",
-    bgGradient: "radial-gradient(circle at top right, rgba(34, 211, 238, 0.15), transparent 60%)",
+    description: "Expense tracking and budgeting web application for personal finance management.",
     image: "/portfolio/business-software.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/Expense-Tracker-App",
   },
   {
-    icon: "✍🏻",
-    color: "blue",
     title: "Signify",
-    description: "Signature Replication Tool for Digital Document Authentication and Verification.",
-    bgGradient: "radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 60%)",
+    description: "Signature replication tool for digital document authentication and verification.",
     image: "/portfolio/mobile-apps.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/Photo-Replication-System",
   },
   {
-    icon: "🌿",
-    color: "yellow",
     title: "SumHealth",
-    description: "Summary Generation For Healthcare Reports Using NLP and AI Techniques.",
-    bgGradient: "radial-gradient(circle at top right, rgba(74, 222, 128, 0.15), transparent 60%)",
+    description: "Summary generation for healthcare reports using NLP and AI techniques.",
     image: "/portfolio/sumhealth.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/Summary-Generater",
   },
   {
-    icon: "🎓",
-    color: "pink",
     title: "Pefind",
-    description: "Early Disease Risk Prediction and Health Monitoring Platform Using AI",
-    bgGradient: "radial-gradient(circle at top right, rgba(236, 72, 153, 0.15), transparent 60%)",
+    description: "Early disease risk prediction and health monitoring platform using AI.",
     image: "/portfolio/learning-platform.png",
     link: "https://github.com/vishwajeetdeshmukhdeveloper/Early-Disease-Detection-App",
   },
@@ -331,21 +285,18 @@ export const testimonials = [
     initials: "AK",
     name: "Aryan Kapoor",
     role: "CTO, NexaFinance",
-    gradient: "from-blue to-purple",
   },
   {
     text: "The learning platform they built for us enrolled 3,000 students in the first month. It was beautiful, fast, and exactly what we envisioned. Exceptional execution.",
     initials: "PS",
     name: "Priya Sharma",
     role: "Founder, EduPath",
-    gradient: "from-purple to-cyan",
   },
   {
     text: "I went from zero coding knowledge to a full-time developer role in 9 months. The Vishv curriculum and mentorship completely changed my career trajectory.",
     initials: "RM",
     name: "Rohan Mehta",
     role: "Software Engineer, Razorpay",
-    gradient: "from-cyan to-blue",
   },
 ] as const;
 
@@ -385,7 +336,7 @@ export const footerLinks = {
   company: [
     { href: "/#about", label: "About Us" },
     { href: "/#work", label: "Our Work" },
-    { href: "/#why", label: "Why Vishv" },
+    { href: "/#approach", label: "Our Approach" },
     { href: "/contact", label: "Contact" },
   ],
   services: [

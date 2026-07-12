@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/config/site";
 
 export function PageLoader() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export function PageLoader() {
           className="h-10 w-10 animate-spin rounded-full border-2 border-[var(--color-glass-border)] border-t-[var(--color-blue)]"
           aria-hidden="true"
         />
-        <span className="font-display text-sm text-[var(--color-muted)]">Vishv Technologies</span>
+        <span className="font-display text-sm text-[var(--color-muted)]">{siteConfig.name}</span>
       </div>
     </div>
   );

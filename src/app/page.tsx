@@ -9,40 +9,34 @@ const WhyChooseUs = dynamic(() =>
 );
 const Portfolio = dynamic(() => import("@/components/sections/Portfolio").then((m) => m.Portfolio));
 const TechStack = dynamic(() => import("@/components/sections/TechStack").then((m) => m.TechStack));
-// const Testimonials = dynamic(() =>
-//   import("@/components/sections/Testimonials").then((m) => m.Testimonials),
-// );
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then((m) => m.FAQ));
 const ContactSection = dynamic(() =>
   import("@/components/sections/ContactSection").then((m) => m.ContactSection),
 );
 const Newsletter = dynamic(() => import("@/components/sections/Newsletter").then((m) => m.Newsletter));
 
-function GlowDivider() {
-  return <div className="glow-divider" aria-hidden="true" />;
+function SectionDivider() {
+  return <hr className="section-rule" aria-hidden="true" />;
 }
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <GlowDivider />
+      <SectionDivider />
       <About />
-      <GlowDivider />
+      <SectionDivider />
       <Services />
-      <GlowDivider />
-      <Community />
-      <GlowDivider />
+      <SectionDivider />
       <WhyChooseUs />
-      <GlowDivider />
+      <SectionDivider />
       <Portfolio />
-      <GlowDivider />
       <TechStack />
-      {/* <GlowDivider /> */}
-      {/* <Testimonials /> */}
-      <GlowDivider />
+      <SectionDivider />
+      <Community />
+      <SectionDivider />
       <FAQ />
-      <GlowDivider />
+      <SectionDivider />
       <ContactSection />
       <Newsletter />
     </>

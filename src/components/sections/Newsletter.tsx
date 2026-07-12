@@ -45,21 +45,14 @@ export function Newsletter() {
   };
 
   return (
-    <div className="mx-auto max-w-[1200px] px-8">
+    <div className="mx-auto max-w-[1200px] px-8 pb-[120px]">
       <RevealOnScroll>
-        <div className="relative my-10 overflow-hidden rounded-3xl border border-[var(--color-glass-border)] bg-gradient-to-br from-[rgba(59,130,246,0.08)] to-[rgba(124,58,237,0.08)] p-14 text-center max-md:p-8">
-          <div
-            className="pointer-events-none absolute -top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full"
-            aria-hidden="true"
-            style={{
-              background: "radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%)",
-            }}
-          />
-          <h3 className="font-display relative mb-2.5 text-[30px] font-semibold">
-            Stay in the Loop
+        <div className="card relative overflow-hidden rounded-lg p-14 text-center max-md:p-8">
+          <h3 className="font-display relative mb-2.5 text-[28px] font-semibold text-[var(--color-white)]">
+            Join the developer newsletter
           </h3>
-          <p className="relative mb-7 text-[var(--color-muted)]">
-            Get weekly insights on tech, tutorials, and Vishv community updates.
+          <p className="relative mb-8 text-[15px] text-[var(--color-muted)]">
+            One email every two weeks. Technical insights, open-source updates, and engineering deep-dives. No spam.
           </p>
 
           {success ? (
@@ -79,8 +72,8 @@ export function Newsletter() {
                 id="newsletter-email"
                 name="email"
                 type="email"
-                className="form-input flex-1 rounded-full!"
-                placeholder="your@email.com"
+                className="form-input flex-1"
+                placeholder="developer@example.com"
                 required
                 autoComplete="email"
               />
